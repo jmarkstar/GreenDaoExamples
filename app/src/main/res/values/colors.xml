@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#7FCD55</color>
+
+    <color name="color_msj_error">#ec1f23</color>
+    <color name="color_msj_warning">#f98500</color>
+    <color name="color_msj_success">#68bc45</color>
+</resources>

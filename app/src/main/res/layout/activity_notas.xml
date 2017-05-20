@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff8e1"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jmarkstar.greendaocrud.activities.NotasActivity">
+
+    <LinearLayout android:orientation="horizontal"
+        android:id="@+id/ll_formulario"
+        android:weightSum="10"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_texto"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/registrar_ingrese_nota" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button android:text="@string/registrar_agregar_nota"
+            android:id="@+id/btn_agregar"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/ll_formulario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_notas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView android:id="@+id/tv_lista_notas_vacia"
+            android:text="@string/notas_lista_vacia"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

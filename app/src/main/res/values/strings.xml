@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CRUD - GreenDao</string>
+    <string name="registrar_agregar_nota">AGREGAR</string>
+    <string name="registrar_editar_nota">EDITAR</string>
+    <string name="registrar_ingrese_nota">Ingrese nueva nota</string>
+    <string name="notas_lista_vacia">Aún no tiene notas</string>
+    <string name="notas_dialog_eliminar_msj">Desea eliminar esta nota?</string>
+
+    <string name="dialog_aceptar">ACEPTAR</string>
+    <string name="dialog_cancelar">CANCELAR</string>
+    <string name="registrar_validacion_texto">Debes ingresar un texto.</string>
+    <string name="registrar_mensaje_correcto">La nota fue registrado correctamente.</string>
+    <string name="registrar_mensaje_error">Ocurrió un error al guardar la nota.</string>
+    <string name="Editar_nota_correcto">La nota se actualizó correctamente.</string>
+</resources>
