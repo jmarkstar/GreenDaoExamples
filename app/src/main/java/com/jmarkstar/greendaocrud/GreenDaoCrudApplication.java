@@ -18,8 +18,11 @@ public class GreenDaoCrudApplication extends Application {
     @Override public void onCreate() {
         super.onCreate();
         String nombreBaseDeDatos = ENCRYPTED ? "notas-db-encriptado" : "notas-db";
+
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, nombreBaseDeDatos);
+
         Database db = ENCRYPTED ? helper.getEncryptedWritableDb("mi_clave_secreta") : helper.getWritableDb();
+
         daoSession = new DaoMaster(db).newSession();
     }
 

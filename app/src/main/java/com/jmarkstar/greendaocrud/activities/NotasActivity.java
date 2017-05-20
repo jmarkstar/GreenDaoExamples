@@ -26,8 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-public class NotasActivity extends AppCompatActivity implements NotaAdapter.NotaClickListener,
-        NotaAdapter.EditarNotaClickListener{
+public class NotasActivity extends AppCompatActivity implements NotaAdapter.NotaClickListener{
 
     private static final String TAG  = "NotasActivity";
 
@@ -36,29 +35,35 @@ public class NotasActivity extends AppCompatActivity implements NotaAdapter.Nota
     @BindView(R.id.rv_notas) RecyclerView mRvNotas;
     @BindView(R.id.tv_lista_notas_vacia) TextView mTvListaVacia;
 
+    //libera memoria
     private Unbinder unbinder;
 
+    //dao greendao
     private NotaDao notaDao;
     private Query<Nota> notasQuery;
+
     private NotaAdapter notaAdapter;
 
+    //campos para editar
     private Nota notaEditable;
     private boolean isEditable = false;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notas);
+
         unbinder = ButterKnife.bind(this);
 
         mRvNotas.setHasFixedSize(true);
         mRvNotas.setLayoutManager(new LinearLayoutManager(this));
 
-        //como parametro recibe 'this', 'this' porque las interfaces estan siendo implementadas por el activity.
-        notaAdapter = new NotaAdapter(this, this);
+        //como parametro recibe 'this' porque las interfaces estan siendo implementadas por el activity.
+        notaAdapter = new NotaAdapter(this);
         mRvNotas.setAdapter(notaAdapter);
 
         //obtener la session
-        DaoSession daoSession = ((GreenDaoCrudApplication)getApplication()).getDaoSession();
+        GreenDaoCrudApplication greenDaoCrudApplication = (GreenDaoCrudApplication)getApplication();
+        DaoSession daoSession = greenDaoCrudApplication.getDaoSession();
         notaDao = daoSession.getNotaDao();
 
         //Obtener datos
@@ -161,7 +166,7 @@ public class NotasActivity extends AppCompatActivity implements NotaAdapter.Nota
         Nota nota = new Nota();
         nota.setTexto(mEtTexto.getText().toString());
         nota.setDate( new Date());
-        //retorna el ID del registro si regostro correctamente
+        //retorna el ID del registro si registro correctamente
         long success = notaDao.insert(nota);
         if(success>0){
             SnackBarHelper.showSuccessMessage(mEtTexto, this, getString(R.string.registrar_mensaje_correcto));

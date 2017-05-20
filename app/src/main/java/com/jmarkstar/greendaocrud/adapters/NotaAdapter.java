@@ -22,12 +22,10 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
     final DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
 
     private NotaClickListener clickListener;
-    private EditarNotaClickListener editarNotaClickListener;
     private List<Nota> notas;
 
-    public NotaAdapter(NotaClickListener notaClickListener, EditarNotaClickListener editarNotaClickListener){
+    public NotaAdapter(NotaClickListener notaClickListener){
         this.clickListener = notaClickListener;
-        this.editarNotaClickListener = editarNotaClickListener;
         this.notas = new ArrayList<Nota>();
     }
 
@@ -75,22 +73,27 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
                     }
                 }
             });
+            /*itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override public boolean onLongClick(View v) {
+                    if (clickListener != null) {
+                        clickListener.onNoteClick(getAdapterPosition());
+                    }
+                    return true;
+                }
+            });*/
             ivEditar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (editarNotaClickListener != null) {
-                        editarNotaClickListener.onEditarNoteClick(getAdapterPosition());
+                    if (clickListener != null) {
+                        clickListener.onEditarNoteClick(getAdapterPosition());
                     }
                 }
             });
         }
     }
 
-    public interface EditarNotaClickListener {
-        void onEditarNoteClick(int position);
-    }
-
     public interface NotaClickListener {
         void onNoteClick(int position);
+        void onEditarNoteClick(int position);
     }
 }
