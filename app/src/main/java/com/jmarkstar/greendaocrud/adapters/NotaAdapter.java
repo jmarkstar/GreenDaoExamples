@@ -47,7 +47,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
     @Override public void onBindViewHolder(NotaViewHolder holder, int position) {
         Nota nota = notas.get(position);
         holder.tvTexto.setText(nota.getTexto());
-        String fecha = "Agregado el " + df.format(new Date());
+        String fecha = "Agregado el " + df.format(nota.getDate());
         holder.tvFecha.setText(fecha);
     }
 
