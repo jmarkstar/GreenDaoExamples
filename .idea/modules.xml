@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GreenDaoCrud.iml" filepath="$PROJECT_DIR$/GreenDaoCrud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreenDaoExamples.iml" filepath="$PROJECT_DIR$/GreenDaoExamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basic_crud/basic_crud.iml" filepath="$PROJECT_DIR$/basic_crud/basic_crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/two_schemas/two_schemas.iml" filepath="$PROJECT_DIR$/two_schemas/two_schemas.iml" />
     </modules>
   </component>
 </project>
